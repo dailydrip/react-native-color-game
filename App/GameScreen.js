@@ -107,6 +107,9 @@ class GameScreen extends Component {
         <ScrollView>
           <Text>Phase: {this.props.phase}</Text>
           <Button onPress={()=> props.startGame()} title="START" />
+          <Button onPress={()=> props.repeatAudio()} title="REPEAT AUDIO" />
+          <Button onPress={()=> props.resetGame()} title="RESET GAME" />
+
         </ScrollView>
       </View>
     )
@@ -126,7 +129,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addColor: (color) => dispatch(Actions.addColor(color)),
-    startGame: () => dispatch(Actions.startGame())
+    startGame: () => dispatch(Actions.startGame()),
+    resetGame: () => dispatch(Actions.resetGame()),
+    repeatAudio: () => dispatch(Actions.repeatAudio())
   }
 }
 

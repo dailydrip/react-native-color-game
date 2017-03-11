@@ -5,6 +5,8 @@ export const START_GAME = 'START_GAME'
 // PHASE
 
 export const NEXT_PHASE = 'NEXT_PHASE'
+export const REPEAT_AUDIO = 'REPEAT_AUDIO'
+export const RESET_GAME = 'RESET_GAME'
 
 
 /* COLOR SEQUENCE ACTIONS */
@@ -27,6 +29,18 @@ const startGame = () => {
 const nextPhase = () => {
   return {
     type: NEXT_PHASE
+  }
+}
+
+const repeatAudio = () => {
+  return {
+    type: REPEAT_AUDIO
+  }
+}
+
+const resetGame = () => {
+  return {
+    type: RESET_GAME
   }
 }
 
@@ -53,6 +67,8 @@ let checkColorSequence = (state) => {
 export const Actions = {
   setColor,
   nextPhase,
+  repeatAudio,
+  resetGame,
   startGame,
   addColor,
   checkColorSequence,

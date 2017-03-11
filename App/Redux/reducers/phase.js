@@ -3,6 +3,8 @@ import { Actions,
   SET_COLOR,
   NEXT_PHASE,
   START_GAME,
+  REPEAT_AUDIO,
+  RESET_GAME,
   EXIT_GAME  } from '../actions'
 
 const addNewColor = (colorSequence, newColor) => {
@@ -29,6 +31,13 @@ export default function(state, action){
       let newState = state.set('colorSequence', newSequence).set('justPassed', false)
 
       return newState
+    case REPEAT_AUDIO:
+      return state.set('justPassed', true)
+    case RESET_GAME:
+      return state.set('justPasse', false)
+                  .set('audioFileName', '')
+                  .set('colorSequence', [])
+                  .set('phaseLevel', 0)
     case NEXT_PHASE:
       let phaseLevel = state.get('phaseLevel')
       let newPhaseLevel = phaseLevel + 1
